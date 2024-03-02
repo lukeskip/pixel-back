@@ -1,20 +1,12 @@
 require("dotenv").config();
 const { OpenAI } = require("openai");
 const axios = require("axios");
-const max_tokens = 70;
+const max_tokens = 200;
 
 const info = require("../utils/info.js");
 const prompt = (question) => {
-  return `analiza la siguiente información: ${info} y responde a esta pregunta ${question}.
-  
-  Ten en cuenta que la pregunta está destinada al dueño de la información, si no puedes responder contesta una de estas frases: 1)'Oye! esa es información privada!', 2) 'No creo que quieras saber eso' o 3)'Tal vez si lo preguntas de otra forma...
-
-  Por favor, genera una respuesta en primera persona que se ajuste a las siguientes pautas:
-
-- La respuesta en JSON válido debe contener tres propiedades: "answer", "category" y "info".
-- La propiedad "answer" debe contener la respuesta en menos de 60 caracteres.
-- La propiedad "category" debe indicar la categoría que mejor se ajuste a la pregunte de entre estas opciones ["personal", "professional", "academic"].
-- La propiedad "info" debe proporcionar una descripción detallada y ampliada de la respuesta.`;
+  return `Analiza la siguiente información: ${info} y responde a esta pregunta en primera persona: ${question}
+- Tu respuesta debe tener menos de ${max_tokens} caracteres en total.`;
 };
 
 const openai = new OpenAI({
@@ -28,14 +20,37 @@ const dialogRequest = async (req, res) => {
     const completion = await openai.completions.create({
       model: "gpt-3.5-turbo-instruct",
       prompt: prompt(question),
-      max_tokens: 200,
+      max_tokens: max_tokens,
     });
-    console.log(completion.choices[0].text);
-    const answer = JSON.parse(completion.choices[0].text);
-    res.json({ ...answer });
+
+    console.log(completion);
+    const answer = [];
+    const cleaned = completion.choices[0].text.replace(/\n/g, "");
+    console.log(cleaned);
+    const words = cleaned.split(" ");
+    let tempPhrase = "";
+    let category = "nada";
+    for (const word of words) {
+      if (word === words[words.length - 1]) {
+        console.log("la categoría es:", word);
+        category = word.toLowerCase;
+      } else {
+        if ((tempPhrase + word).length <= 70) {
+          tempPhrase += (tempPhrase ? " " : "") + word;
+        } else {
+          answer.push(tempPhrase);
+          tempPhrase = word;
+        }
+      }
+    }
+
+    if (tempPhrase) {
+      answer.push(tempPhrase);
+    }
+    res.json({ answer, category: "hola" });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "chat-gpt error" });
   }
 };
 
