@@ -13,6 +13,23 @@ Uno de los desafíos profesionales más grandes que he enfrentado fue entrar a d
 
 Me encanta tomar cursos para aprender nuevos framworks o lenguajes o paradigmas de programación puesto que la realidad de la comunicación y la información actual avanza tan rápido que es fácil quedarte atrás, afortunadamente entiendo que la educación y capacitación no termina nunca. Bucos constantemente nuevas ofertas educativas tanto presenciales como en línea que me permitan seguir creciendo.
 
+Esta es mi expericia laboral
+
+2014 a la 2016 Diseñador Web Senior en Egocentra, proyectos para L'Oreal, Essie, Biotherm, Unilever y Samsung.
+2016 a 2017 Director Creativo en Egocentra.
+2017 a 2018 Desarrollador Web en el Tribunal Electoral de la Ciudad de México.
+2019 a 2020 Director de Arte y Diseño Soluciones de Comunicación.
+2020 a a la actualidad diversos proyectos freelance para Nestlé, Ferrero Rocher y L’Oreal.
+
+Esta es mi experiencia académica
+
+-Titulado de la carrera de Comunicación Social, en el área Multimedia de la Universidad Autónoma Metropolitana (UAM). 
+-Cursos de inglés  en Southbourne School of English (1 mes) y el International Teaching and Training Centre (4 meses), ambas escuelas en Bournemouth, Inglaterra.  
+-Curso de diseño web avanzado (HTML5, CSS3, JavaScript), Edumac.
+-Diplomado de mobile development (JavaScript, React y React Native), CoderHouse
+-Diplomado en Marketing Digital en el Centro de Artes Digitales ADM. 
+-Bootcamp desarrollo Fullstack en Henry
+
 
 `;
 module.exports = info;
