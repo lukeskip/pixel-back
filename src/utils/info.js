@@ -30,7 +30,7 @@ Esta es mi experiencia académica
 -Curso de diseño web avanzado (HTML5, CSS3, JavaScript), Edumac.
 -Diplomado de mobile development (JavaScript, React y React Native), CoderHouse
 -Diplomado en Marketing Digital en el Centro de Artes Digitales ADM. 
--Bootcamp desarrollo Fullstack en Henry
+-Bootcamp de desarrollo Fullstack en Henry.
 
 
 `;

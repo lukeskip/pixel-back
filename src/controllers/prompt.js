@@ -7,7 +7,7 @@ const prompt = (question, lang) => {
 
 tu respuesta debe ser un JSON válido con  2 propiedades:
 
-  -answer: aquí va la respuesta a la pregunta en texto plano en primera persona tener menos de ${max_tokens} caracteres en total e incluir 1 emoji. si la pregunta es sobre política o religión contesta con una evasiva.
+  -answer: aquí va la respuesta a la pregunta en texto plano en primera persona tener menos de ${max_tokens} caracteres en total e incluir 1 emoji. Si la pregunta es sobre política o religión contesta con una evasiva.
   -category: categoría que mejor se acomode de las siguientes "personal","professional","academic"
   
   `;
